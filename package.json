@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Recurrence Rules Processor (RRP) is a versatile JavaScript library for managing complex recurring date patterns. From 'every Tuesday' to intricate rules, RRP offers rule validation, occurrence calculation, and date checks, making it ideal for calendar apps, scheduling software, and any application requiring sophisticated date logic",
   "contributors": [
     {
@@ -13,11 +13,12 @@
   ],
   "scripts": {
     "lint": "eslint --ext .js,.ts .",
-    "build": "tsc",
+    "build": "./node_modules/.bin/tsc -d",
     "build:watch": "tsc --watch",
     "prepare": "npm run build"
   },
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "dependencies": {
     "luxon": "^3.3.0"
   },
