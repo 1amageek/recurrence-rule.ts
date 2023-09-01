@@ -36,7 +36,7 @@ describe("contains function", () => {
     const rule: RecurrenceRule = {
       frequency: "monthly",
       interval: 1,
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       daysOfTheMonth: [10],
     };
     const recurrenceRules: RecurrenceRule[] = [rule];
@@ -49,7 +49,7 @@ describe("contains function", () => {
     const rule: RecurrenceRule = {
       frequency: "yearly",
       interval: 1,
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       monthsOfTheYear: [7],
       daysOfTheMonth: [10],
     };
@@ -66,7 +66,7 @@ describe("Additional contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "daily",
       interval: 2, // Interval is 2 days
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
     };
     const recurrenceRules: RecurrenceRule[] = [rule];
     expect(contains(date, recurrenceRules, occurrenceDate)).toBe(true);
@@ -79,7 +79,7 @@ describe("Additional contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "weekly",
       interval: 1,
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       daysOfTheWeek: [{ dayOfTheWeek: Weekday.sunday, weekNumber: 2 }], // Change weekNumber to 2
     };    
     const recurrenceRules: RecurrenceRule[] = [rule];
@@ -93,7 +93,7 @@ describe("Additional contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "monthly",
       interval: 1,
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       daysOfTheMonth: [12], // 12th of the month
     };
     const recurrenceRules: RecurrenceRule[] = [rule];
@@ -107,7 +107,7 @@ describe("Additional contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "yearly",
       interval: 1,
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       monthsOfTheYear: [1], // January
       daysOfTheMonth: [10],
     };
@@ -124,7 +124,7 @@ describe("Edge case contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "weekly",
       interval: 1,
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       daysOfTheWeek: [{ dayOfTheWeek: Weekday.friday, weekNumber: 2 }],
     };
     const recurrenceRules: RecurrenceRule[] = [rule];
@@ -138,7 +138,7 @@ describe("Edge case contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "monthly",
       interval: 1,
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       daysOfTheMonth: [10], // 10th of the month
     };
     const recurrenceRules: RecurrenceRule[] = [rule];
@@ -152,7 +152,7 @@ describe("Edge case contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "yearly",
       interval: 1,
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       monthsOfTheYear: [7], // July
       daysOfTheMonth: [10], // 10th of the month
     };
@@ -167,7 +167,7 @@ describe("Edge case contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "yearly",
       interval: 1,
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       monthsOfTheYear: [7], // July
       daysOfTheMonth: [10], // 10th of the month
     };
@@ -184,7 +184,7 @@ describe("Extra edge case contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "daily",
       interval: 2,
-      firstDayOfTheWeek: 0, // First day is Sunday
+      firstDayOfTheWeek: 2, // First day is Sunday
     };
     const recurrenceRules: RecurrenceRule[] = [rule];
     expect(contains(date, recurrenceRules, occurrenceDate)).toBe(true);
@@ -211,7 +211,7 @@ describe("Extra edge case contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "monthly",
       interval: 2, // Interval is 2 months
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       daysOfTheMonth: [10], // 10th of the month
     };
     const recurrenceRules: RecurrenceRule[] = [rule];
@@ -225,7 +225,7 @@ describe("Extra edge case contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "yearly",
       interval: 2, // Interval is 2 years
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       monthsOfTheYear: [7], // July
       daysOfTheMonth: [10], // 10th of the month
     };
@@ -242,7 +242,7 @@ describe("Extra extra edge case contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "daily",
       interval: 2,
-      firstDayOfTheWeek: 0, // First day is Sunday
+      firstDayOfTheWeek: 2, // First day is Sunday
     };
     const recurrenceRules: RecurrenceRule[] = [rule];
     expect(contains(date, recurrenceRules, occurrenceDate)).toBe(true);
@@ -269,7 +269,7 @@ describe("Extra extra edge case contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "monthly",
       interval: 2, // Interval is 2 months
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       daysOfTheMonth: [10], // 10th of the month
     };
     const recurrenceRules: RecurrenceRule[] = [rule];
@@ -283,7 +283,7 @@ describe("Extra extra edge case contains function tests", () => {
     const rule: RecurrenceRule = {
       frequency: "yearly",
       interval: 2, // Interval is 2 years
-      firstDayOfTheWeek: 0,
+      firstDayOfTheWeek: 2,
       monthsOfTheYear: [7], // July
       daysOfTheMonth: [10], // 10th of the month
     };

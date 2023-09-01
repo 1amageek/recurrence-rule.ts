@@ -8,13 +8,25 @@ export function contains(date: DateTime, recurrenceRules: RecurrenceRule[], occu
   return recurrenceRules.some(rule => containsInRule(date, rule, occurrenceDate));
 }
 
+/// Luxon's weekday uses values from 1 to 7 to represent Monday through Sunday.
+/// Mon, Tue, Wed, Thu, Fri, Sat, Sun
+/// 1, 2, 3, 4, 5, 6, 7
+/// Apple's EKRecurrenceRule uses values from 1 to 7 to represent Sunday through Saturday.
+/// Sun, Mon, Tue, Wed, Thu, Fri, Sat
+/// 1, 2, 3, 4, 5, 6, 7
 function adjustWeekday(day: number, firstDayOfTheWeek: number): number {
-  const offset = firstDayOfTheWeek == 0 ? 1 : firstDayOfTheWeek;
-  let adjustedDay = day + offset;
-  if (adjustedDay > 7) {
-    adjustedDay = adjustedDay % 7;
+  if (firstDayOfTheWeek === 0) {
+    // If firstDayOfTheWeek is 0, retain Luxon's specification
+    return day;
   }
-  return adjustedDay;
+
+  // Convert the day into Apple's representation
+  let appleRepresentation = day === 7 ? 1 : day + 1;
+
+  // Adjust based on the firstDayOfTheWeek
+  let offset = (appleRepresentation - firstDayOfTheWeek + 7) % 7;
+
+  return (offset + firstDayOfTheWeek) % 7 || 7; // Convert back to Luxon's 1-based index
 }
 
 function containsInRule(date: DateTime, rule: RecurrenceRule, occurrenceDate: DateTime): boolean {
