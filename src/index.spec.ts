@@ -1,4 +1,4 @@
-import { contains, RecurrenceRule, Weekday } from './index';
+import { containsDate as contains, RecurrenceRule, Weekday } from './index';
 import { DateTime } from 'luxon'
 
 describe("contains function", () => {
